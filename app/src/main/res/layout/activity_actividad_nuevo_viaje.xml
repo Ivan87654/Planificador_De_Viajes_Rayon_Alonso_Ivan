@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:id="@+id/contenedor_formulario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+
+        <TextView
+            android:id="@+id/txt_titulo_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_titulo"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt_titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_titulo"
+            android:inputType="textCapWords"
+            android:maxLength="60"
+            android:layout_marginBottom="12dp" />
+
+
+        <TextView
+            android:id="@+id/txt_fecha_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_fecha_salida"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt_fecha_salida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_fecha_salida"
+            android:inputType="date"
+            android:layout_marginBottom="8dp" />
+
+
+        <CheckBox
+            android:id="@+id/chk_fecha_flexible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/opcion_fecha_flexible"
+            android:layout_marginBottom="16dp" />
+
+
+
+        <TextView
+            android:id="@+id/txt_imagen_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_imagen"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/img_portada_previsualizacion"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/desc_imagen_viaje"
+            android:scaleType="centerCrop" />
+
+        <Button
+            android:id="@+id/btn_seleccionar_imagen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/accion_seleccionar_imagen"
+            android:layout_marginBottom="20dp" />
+
+
+
+        <TextView
+            android:id="@+id/txt_tipo_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_tipo_actividad"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rg_tipo_actividad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/rb_tipo_turismo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tipo_turismo" />
+
+            <RadioButton
+                android:id="@+id/rb_tipo_gastronomia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tipo_gastronomia"
+                android:layout_marginStart="12dp" />
+
+            <RadioButton
+                android:id="@+id/rb_tipo_ocio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tipo_ocio"
+                android:layout_marginStart="12dp" />
+        </RadioGroup>
+
+
+
+        <TextView
+            android:id="@+id/txt_spinner_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_spinner_tipo"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spn_tipo_actividad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" />
+
+
+        <TextView
+            android:id="@+id/txt_recordatorio_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_recordatorio"
+            android:textStyle="bold" />
+
+        <Switch
+            android:id="@+id/sw_recordatorio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/opcion_recordatorio"
+            android:layout_marginBottom="16dp" />
+
+
+        <TextView
+            android:id="@+id/txt_presupuesto_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_presupuesto"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/skb_presupuesto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="3000"
+            android:layout_marginTop="6dp" />
+
+        <TextView
+            android:id="@+id/txt_presupuesto_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/presupuesto_inicial"
+            android:layout_marginBottom="16dp" />
+
+
+        <TextView
+            android:id="@+id/txt_valoracion_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_valoracion"
+            android:textStyle="bold" />
+
+        <RatingBar
+            android:id="@+id/rtb_valoracion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1"
+            android:layout_marginBottom="20dp" />
+
+
+
+        <Button
+            android:id="@+id/btn_guardar_viaje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/accion_guardar" />
+
+    </LinearLayout>
+</ScrollView>

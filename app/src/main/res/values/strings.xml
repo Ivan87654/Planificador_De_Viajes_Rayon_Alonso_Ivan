@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Planificador de Viajes</string>
+    <string name="titulo_viaje">Título del viaje</string>
+    <string name="fecha_salida">Fecha de salida</string>
+    <string name="label_titulo">Título del viaje</string>
+    <string name="hint_titulo">Introduce un título</string>
+    <string name="label_fecha_salida">Fecha de salida</string>
+    <string name="hint_fecha_salida">Selecciona o escribe la fecha</string>
+    <string name="opcion_fecha_flexible">Fecha flexible (aproximada)</string>
+
+
+    <string name="label_imagen">Imagen del viaje</string>
+    <string name="desc_imagen_viaje">Imagen ilustrativa del viaje</string>
+    <string name="accion_seleccionar_imagen">Seleccionar imagen</string>
+
+
+    <string name="label_tipo_actividad">Tipo de actividad</string>
+    <string name="tipo_turismo">Turismo</string>
+    <string name="tipo_gastronomia">Gastronomía</string>
+    <string name="tipo_ocio">Ocio</string>
+
+
+    <string name="label_spinner_tipo">Selecciona un tipo de actividad</string>
+
+
+    <string name="label_recordatorio">Recordatorio</string>
+    <string name="opcion_recordatorio">Activar recordatorio</string>
+    <string name="label_presupuesto">Presupuesto (0–3000€)</string>
+    <string name="presupuesto_inicial">Presupuesto: 0€</string>
+    <string name="label_valoracion">Valoración</string>
+
+
+    <string name="accion_guardar">Guardar</string>
+
+
+</resources>
