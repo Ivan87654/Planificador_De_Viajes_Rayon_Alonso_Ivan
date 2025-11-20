@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:layout_marginTop="50dp">
 
 
         <TextView
@@ -42,6 +43,22 @@
             android:layout_height="wrap_content"
             android:hint="@string/hint_fecha_salida"
             android:inputType="date"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/txt_hora_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_hora_salida"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt_hora_salida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_hora_salida"
+            android:focusable="false"
+            android:clickable="true"
             android:layout_marginBottom="8dp" />
 
 

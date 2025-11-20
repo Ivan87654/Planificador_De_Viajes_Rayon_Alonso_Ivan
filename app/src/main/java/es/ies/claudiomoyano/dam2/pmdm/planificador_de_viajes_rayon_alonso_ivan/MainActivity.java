@@ -25,18 +25,15 @@ public class MainActivity extends AppCompatActivity {
 
         rvViajes = findViewById(R.id.rv_viajes);
 
-
         listaViajes = new ArrayList<>();
         cargarViajesEjemplo();
 
-
         rvViajes.setLayoutManager(new LinearLayoutManager(this));
-
 
         adaptadorViajes = new AdaptadorViajes(listaViajes);
         rvViajes.setAdapter(adaptadorViajes);
 
-
+        // Click normal: abrir detalles del viaje
         adaptadorViajes.setOnItemClickListener(new AdaptadorViajes.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
@@ -46,46 +43,82 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("titulo", viajeSeleccionado.getTitulo());
                 intent.putExtra("fecha", viajeSeleccionado.getFechaSalida());
                 intent.putExtra("imagen", viajeSeleccionado.getIdRecursoImagen());
+                intent.putExtra("descripcion", viajeSeleccionado.getDescripcion());
 
                 startActivity(intent);
             }
         });
 
-
+        // Menú contextual (si lo tienes configurado en el adaptador)
         adaptadorViajes.setOnItemMenuListener(new AdaptadorViajes.OnItemMenuListener() {
             @Override
             public void onEditar(int position) {
-
-
                 Viaje viajeSeleccionado = listaViajes.get(position);
 
                 Intent intent = new Intent(MainActivity.this, ActividadDetalleViaje.class);
                 intent.putExtra("titulo", viajeSeleccionado.getTitulo());
                 intent.putExtra("fecha", viajeSeleccionado.getFechaSalida());
                 intent.putExtra("imagen", viajeSeleccionado.getIdRecursoImagen());
+                intent.putExtra("descripcion", viajeSeleccionado.getDescripcion());
 
                 startActivity(intent);
             }
 
             @Override
             public void onEliminar(int position) {
-
                 listaViajes.remove(position);
                 adaptadorViajes.notifyItemRemoved(position);
             }
         });
     }
 
-
+    // -------- VIAJES DE EJEMPLO CON DESCRIPCIÓN --------
     private void cargarViajesEjemplo() {
-        int imagen = R.drawable.ic_launcher_foreground;
 
-        listaViajes.add(new Viaje("Roma", "12/04/2025", imagen));
-        listaViajes.add(new Viaje("París", "20/07/2025", imagen));
-        listaViajes.add(new Viaje("Londres", "05/10/2025", imagen));
+        listaViajes.add(new Viaje(
+                "Roma - El Coliseum",
+                "12/04/2025",
+                R.drawable.roma,
+                "Visita una de las Siete Maravillas del Mundo Moderno. El Coliseo es el mayor anfiteatro del Imperio Romano y un símbolo eterno de la ciudad. Descubre su historia, los gladiadores y el corazón del antiguo deporte romano."
+        ));
+
+        listaViajes.add(new Viaje(
+                "París - La Torre Eiffel",
+                "20/07/2025",
+                R.drawable.paris,
+                "La Torre Eiffel es el monumento más famoso de Francia. Disfruta de París desde sus miradores, pasea por los Campos de Marte y explora la romántica atmósfera de la Ciudad de la Luz."
+        ));
+
+        listaViajes.add(new Viaje(
+                "Londres - El Big Ben",
+                "05/10/2025",
+                R.drawable.londres,
+                "El Big Ben y el Palacio de Westminster forman uno de los iconos más reconocibles del Reino Unido. Recorre la zona del Támesis, descubre la historia del parlamento británico y vive el ambiente cosmopolita de Londres."
+        ));
+
+        listaViajes.add(new Viaje(
+                "Nueva York – Manhattan",
+                "15/03/2026",
+                R.drawable.nuevayork,
+                "Manhattan es el corazón de Nueva York. Recorre Times Square, Central Park, Broadway y los rascacielos más famosos del mundo en la ciudad que nunca duerme."
+        ));
+
+        listaViajes.add(new Viaje(
+                "Berlín – Ruta histórica",
+                "09/09/2025",
+                R.drawable.berlin,
+                "En Berlín podrás visitar el Muro, el Reichstag, la Puerta de Brandeburgo y museos llenos de historia. Una ciudad moderna que mezcla memoria, innovación y cultura europea."
+        ));
+
+        listaViajes.add(new Viaje(
+                "Egipto – Pirámides de Giza",
+                "02/02/2026",
+                R.drawable.egipto,
+                "Explora la necrópolis más famosa del planeta. Las Pirámides de Giza y la Gran Esfinge son vestigios milenarios del Antiguo Egipto, ideales para amantes de la historia y la arqueología."
+        ));
     }
 
-
+    // ---------------- MENÚ SUPERIOR ----------------
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_principal, menu);
@@ -94,18 +127,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         int id = item.getItemId();
-
 
         if (id == R.id.opcion_nuevo_viaje) {
             Intent intent = new Intent(MainActivity.this, ActividadNuevoViaje.class);
             startActivity(intent);
             return true;
-        }
-
-
-        if (id == R.id.opcion_acerca_de) {
+        } else if (id == R.id.opcion_acerca_de) {
+            // Aquí podrías mostrar un diálogo "Acerca de"
             return true;
         }
 

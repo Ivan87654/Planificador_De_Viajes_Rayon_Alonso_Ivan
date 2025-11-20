@@ -13,22 +13,27 @@ public class ActividadDetalleViaje extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_detalle_viaje);
 
+        // OCULTAR LA BARRA SUPERIOR EN ESTA PANTALLA
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
 
         ImageView imgPortada = findViewById(R.id.img_portada_detalle);
         TextView txtTitulo = findViewById(R.id.txt_titulo_detalle);
         TextView txtFecha = findViewById(R.id.txt_fecha_detalle);
+        TextView txtDescripcion = findViewById(R.id.txt_descripcion_detalle);
 
+        String titulo = getIntent().getStringExtra("titulo");
+        String fecha = getIntent().getStringExtra("fecha");
+        String descripcion = getIntent().getStringExtra("descripcion");
+        int idImagen = getIntent().getIntExtra("imagen", 0);
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String titulo = extras.getString("titulo");
-            String fecha = extras.getString("fecha");
-            int imagen = extras.getInt("imagen");
+        txtTitulo.setText(titulo);
+        txtFecha.setText(fecha);
+        txtDescripcion.setText(descripcion);
 
-
-            txtTitulo.setText(titulo);
-            txtFecha.setText(fecha);
-            imgPortada.setImageResource(imagen);
+        if (idImagen != 0) {
+            imgPortada.setImageResource(idImagen);
         }
     }
 }
